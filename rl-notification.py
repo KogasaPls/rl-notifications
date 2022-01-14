@@ -12,8 +12,6 @@ import time
 
 socket_path = '/tmp/rl-notification'
 
-css_provider = Gtk.CssProvider()
-context = Gtk.StyleContext()
 timers = {"Potapto": 0, "Maldemort": 0, "Potaptwo": 0}
 
 nord0 = '46,52,64'  # darkest gray
@@ -73,10 +71,12 @@ def blank(user):
         win.label.set_text('')
         css = "window.background.{} * {{ " \
             "opacity: 0; padding: 0px 0px 0px 0px; border: 0px; font-size: 0; }}".format(user)
+        css_provider = Gtk.CssProvider()
         css_provider.load_from_data(css.encode())
         winContext = win.get_style_context()
         winContext.add_class(user)
         screen = Gdk.Screen.get_default()
+        context = Gtk.StyleContext()
         context.add_provider_for_screen(screen, css_provider,
                                         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
         timers[user] = 0  # clear timer
@@ -92,10 +92,12 @@ def redrawBox(user, message=''):
             "opacity: 1; font-family: Iosevka; font-weight: 500; font-size: 12pt; " \
             "padding: 15px 15px 15px 15px; border: 2px solid rgba(216, 222, 233, 1); " \
             "background-color: rgba({}, 1); color: rgb({}); }}".format(user, bgColor(message), fgColor)
+        css_provider = Gtk.CssProvider()
         css_provider.load_from_data(css.encode())
         winContext = win.get_style_context()
         winContext.add_class(user)
         screen = Gdk.Screen.get_default()
+        context = Gtk.StyleContext()
         context.add_provider_for_screen(screen, css_provider,
                                         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
         Gtk.Widget.set_opacity(win, 1)
