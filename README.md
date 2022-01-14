@@ -7,9 +7,9 @@ See it in action: https://streamable.com/yx2m3c
 
 * For personal use; useless without some tinkering. In particular: my usernames are hardcoded, and I position the notification windows externally via Sway.
 
-* The main file (rl-notification.py) listens to a socket for notifications, then displays a GTK3 window with title $user and message $message. It creates a separate persistent window for each different $user, so that they can be positioned on top of their respective RuneLite clients. The script automatically colors the notification box according to the content of the message, and this can be easily tweaked/customized.
+* The main script (rl-notification.py) listens to a socket for notifications, then displays a GTK3 window with title $user and message $message. It creates a separate persistent window for each different $user, so that they can be positioned on top of their respective RuneLite clients. The script automatically colors the notification box according to the content of the message, and this can be easily tweaked/customized.
 
-* The auxiliary program rl-notification-client.py sends RuneLite notifications to the socket It should be triggered by Dunst, e.g. via
+* The auxiliary script rl-notification-client.py sends RuneLite notifications to the socket. It should be triggered by Dunst, e.g. via
 ```
 ### ~/.config/dunst/dunstrc
 ...
