@@ -1,5 +1,5 @@
 # rl-notifications
-RuneLite notification daemon for Linux. Intended as a visual aid while multi-logging, by allowing each RuneLite client to have its own visually distinct and customizable notifications. 
+RuneLite notification daemon for Linux, using Python/GTK3 (Pypy3/PyGObject). Intended as a visual aid while multi-logging, by allowing each RuneLite client to have its own visually distinct and customizable notifications. 
 
 ![image](https://user-images.githubusercontent.com/87504405/149548736-b27dadf6-6dde-4f1f-a8b9-74f4de3edc24.png)
 
