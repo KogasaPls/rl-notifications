@@ -46,4 +46,4 @@ for_window [app_id="rl-notification.py" title="Maldemort"] floating enable, bord
 for_window [app_id="rl-notification.py" title="Potaptwo"] floating enable, border none, move absolute position 3846 813, sticky disable
 ```
 
-
+I am not a programmer; these scripts were hobbled together through trial, error, and Google. As such, there are things I've done suboptimally, so please let me know if you have any suggestions.
