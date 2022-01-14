@@ -1,17 +1,15 @@
 # rl-notifications
-RuneLite notification daemon for Linux. Intended to aid in multi-logging, by allowing each RuneLite client to have its own visually distinct and customizable notifications. 
+RuneLite notification daemon for Linux. Intended as a visual aid while multi-logging, by allowing each RuneLite client to have its own visually distinct and customizable notifications. 
 
 ![image](https://user-images.githubusercontent.com/87504405/149548736-b27dadf6-6dde-4f1f-a8b9-74f4de3edc24.png)
 
-
-
 See it in action: https://streamable.com/yx2m3c
 
-For personal use; useless without some tinkering. In particular, my usernames are hardcoded, and I position the notification windows externally via Sway.
+* For personal use; useless without some tinkering. In particular: my usernames are hardcoded, and I position the notification windows externally via Sway.
 
-This program (rl-notification.py) listens to a socket (/tmp/rl-notification) for a string formatted as "$user $message", then displays a GTK3 window with title $user and message $message. It creates a separate persistent window for each different $user, so that they can be positioned on top of their respective RuneLite clients of origin. The script automatically colors the notification box according to the content of the message. 
+* The main file (rl-notification.py) listens to a socket for notifications, then displays a GTK3 window with title $user and message $message. It creates a separate persistent window for each different $user, so that they can be positioned on top of their respective RuneLite clients. The script automatically colors the notification box according to the content of the message, and this can be easily tweaked/customized.
 
-The auxiliary program rl-notification-client.py should be triggered by Dunst, e.g. via
+* The auxiliary program rl-notification-client.py sends RuneLite notifications to the socket It should be triggered by Dunst, e.g. via
 ```
 ### ~/.config/dunst/dunstrc
 ...
@@ -20,16 +18,14 @@ The auxiliary program rl-notification-client.py should be triggered by Dunst, e.
   script = "~/git/runelite-notifications/rl-notification-client.py"
   skip_display = yes
 ```
-and will send RuneLite notifications' username and body text to the socket. 
 
-Remarks:
 * You must enable notifications in RuneLite, as well as the setting "show username in title bar." I also recommend the stock plugin "Idle Notifications" and the Plugin Hub plugin "Chat Notifications," which I use as follows:
 
 ![image](https://user-images.githubusercontent.com/87504405/149544548-35e32e22-cd5f-498a-b1ae-0b67ee9d9257.png)
 
 * Instead of hiding or destroying the window, the script shrinks it to a tiny size (~1x3 pixels) and makes it transparent. This eliminates an annoying microstutter in Sway which I believe is related to the use of Sway to position the windows.
 * The use of pypy3 over cython is nonessential.
-* The windows disappear after 3 seconsd without a new notification on the same client. Clicking them will cause them to disappear instantly.
+* The windows disappear after 3 seconds without a new notification on the same client. Clicking them will cause them to disappear instantly.
 * My Sway config includes the following code to set up my Workspace 4 as seen in the demo, and position the notification windows. With 1-pixel borders and a 2560x1440 monitor, this configuration can be used to create one 1280x720 window and two smaller 16x9 windows (ideal for streaming). The large side gaps and thin inner gaps are intended to center the windows and reduce eye/mouse travel between them. This is my preferred layout for playing 1 account + 2 rune dragon alts.
 ```
 ### ~/.config/sway/config
