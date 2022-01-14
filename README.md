@@ -34,9 +34,9 @@ for_window [class="net-runelite-client-RuneLite"] move to workspace 4
 ...
 # rl-notifications
 no_focus [app_id="rl-notification.py"]
-for_window [app_id="rl-notification.py" title="Potapto"] floating enable border none move to workspace 4 move absolute position 2810 81 sticky disable
-for_window [app_id="rl-notification.py" title="Maldemort"] floating enable border none move to workspace 4 move absolute position 2810 813 sticky disable
-for_window [app_id="rl-notification.py" title="Potaptwo"] floating enable border none move to workspace 4 move absolute position 3846 813 sticky disable
+for_window [app_id="rl-notification.py" title="Potapto"] floating enable, border none, move to workspace 4, move absolute position 2810 81, sticky disable
+for_window [app_id="rl-notification.py" title="Maldemort"] floating enable, border none, move absolute position 2810 813, sticky disable
+for_window [app_id="rl-notification.py" title="Potaptwo"] floating enable, border none, move absolute position 3846 813, sticky disable
 ```
 
 * You must enable notifications in RuneLite, as well as the setting "show username in title bar." I also recommend the stock plugin "Idle Notifications" and the Plugin Hub plugin "Chat Notifications," which I use as follows:
