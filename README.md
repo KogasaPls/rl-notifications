@@ -1,5 +1,11 @@
 # rl-notifications
-RuneLite notification daemon for Linux. Intended to aid in multi-logging, by allowing each RuneLite client to have its own visually distinct and customizable notifications. See the demo: https://streamable.com/yx2m3c
+RuneLite notification daemon for Linux. Intended to aid in multi-logging, by allowing each RuneLite client to have its own visually distinct and customizable notifications. 
+
+![image](https://user-images.githubusercontent.com/87504405/149548736-b27dadf6-6dde-4f1f-a8b9-74f4de3edc24.png)
+
+
+
+See it in action: https://streamable.com/yx2m3c
 
 For personal use; useless without some tinkering. In particular, my usernames are hardcoded, and I position the notification windows externally via Sway.
 
@@ -19,6 +25,7 @@ and will send RuneLite notifications' username and body text to the socket.
 
 * Instead of hiding or destroying the window, the script shrinks it to a tiny size (~1x3 pixels) and makes it transparent. This eliminates an annoying microstutter in Sway which I believe is related to the use of Sway to position the windows.
 * The use of pypy3 over cython is nonessential.
+* The windows disappear after 3 seconsd without a new notification on the same client. Clicking them will cause them to disappear instantly.
 * My Sway config includes the following code to set up my Workspace 4 as seen in the demo, and position the notification windows. With 1-pixel borders and a 2560x1440 monitor, this configuration can be used to create one 1280x720 window and two smaller 16x9 windows (ideal for streaming). The large side gaps and thin inner gaps are intended to center the windows and reduce eye/mouse travel between them. This is my preferred layout for playing 1 account + 2 rune dragon alts.
 ```
 ### ~/.config/sway/config
